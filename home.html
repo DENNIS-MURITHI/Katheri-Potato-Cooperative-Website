@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-5fVhJf/QD6FkAFVtZ9gQMLyRNNwaNEz1ocWOVORm7PfDAEiyKyKBCcZ0vh3LC4NE7Wyc3xchGV3x2yXyPdi2fw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!--  Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Katheri West Cooperative - Home</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="./images/download.webp" alt="Katheri West Cooperative Logo" id="logo">
+            <h1>Katheri Potato Cooperative</h1>
+        </div>
+        <nav>
+            <button id="theme-toggle" aria-label="Toggle Dark/Light Mode">🌙</button>
+            <a href="#" id="contact-button" aria-label="Contact Us">Contact</a> 
+            <a href="#" id="trade-button">Trade</a>
+            <a href="#" id="training-button">Trainings</a>
+            <div id="user-icon" role="img" aria-label="User Account">👤</div>
+            <a href="#" id="logout" aria-label="Logout">Logout</a>
+        </nav>
+        <!-- Hamburger icon -->
+        <div class="hamburger" id="hamburger-menu">
+            &#9776; 
+        </div>
+    </header>
+
+    <!-- Mobile navigation -->
+    <div class="mobile-nav" id="mobile-nav">
+        <button id="theme-toggle-mobile" aria-label="Toggle Dark/Light Mode">🌙</button>
+        <a href="#" id="contact-button-mobile" aria-label="Contact Us">Contact</a> 
+        <a href="#" id="trade-button-mobile">Trade</a>
+        <a href="#" id="training-button-mobile">Trainings</a>
+        <div id="user-icon-mobile" role="img" aria-label="User Account">👤</div>
+        <a href="#" id="logout-mobile" aria-label="Logout">Logout</a>
+    </div>
+
+    <main>
+        <section id="introduction">
+            <h2>Welcome to Katheri Potato Cooperative!</h2>
+            <p>At Katheri Potato Cooperative, we connect farmers and buyers, facilitating the trading of quality potatoes and agricultural training.</p>
+            <button id="welcome-button">Open Buyer/Seller Section</button>
+        </section>
+
+        <section id="trade-section" style="display: none;">
+            <h2>Trade as Buyer or Seller</h2>
+            <button id="buyer-button">Buy Potatoes</button>
+            <button id="seller-button">Sell Potatoes</button>
+            <button id="sell-seeds-button">Buy Certified Potato Seeds</button>
+
+            <div id="buyer-section" style="display: none;">
+                <h3>Buy Potatoes</h3>
+                <form id="buy-potato-form">
+                    <label for="potato-type">Select Potato Type:</label>
+                    <select id="potato-type" required>
+                        <option value="Sangi">Sangi - Ksh 3500</option>
+                        <option value="Sherehekea">Sherehekea - Ksh 3000</option>
+                        <option value="Unica">Unica - Ksh 2800</option>
+                        <option value="Asante">Asante - Ksh 3200</option>
+                        <option value="Destiny">Destiny - Ksh 3400</option>
+                    </select>
+                    <label for="buy-quantity">Quantity (50kg bags):</label>
+                    <input type="number" id="buy-quantity" min="1" required>
+                    <p>Total Price: <span id="total-price">Ksh 0</span></p>
+                    <button type="submit">Buy</button>
+                </form>
+                <div id="buy-receipt"></div>
+            </div>
+
+            <div id="seller-section" style="display: none;">
+                <h3>Sell Potatoes</h3>
+                <form id="sell-potato-form">
+                    <label for="sell-type">Select Potato Type:</label>
+                    <select id="sell-type" required>
+                        <option value="Sangi">Sangi</option>
+                        <option value="Sherehekea">Sherehekea</option>
+                        <option value="Unica">Unica</option>
+                        <option value="Asante">Asante</option>
+                        <option value="Destiny">Destiny</option>
+                    </select>
+                    <label for="sell-quantity">Quantity (kg):</label>
+                    <input type="number" id="sell-quantity" min="1" required>
+                    <button type="submit">Sell</button>
+                </form>
+                <div id="sell-receipt"></div>
+            </div>
+
+            <div id="sell-seeds-section" style="display: none;">
+                <h3>Buy Certified Potato Seeds</h3>
+                <form id="sell-seeds-form">
+                    <label for="seed-type">Select Seed Type:</label>
+                    <select id="seed-type" required>
+                        <option value="Sangi">Sangi Seeds</option>
+                        <option value="Sherehekea">Sherehekea Seeds</option>
+                        <option value="Unica">Unica Seeds</option>
+                        <option value="Asante">Asante Seeds</option>
+                        <option value="Destiny">Destiny Seeds</option>
+                    </select>
+                    <label for="sell-seeds-quantity">Quantity (kg):</label>
+                    <input type="number" id="sell-seeds-quantity" min="1" required>
+                    <button type="submit">Sell Seeds</button>
+                </form>
+                <div id="sell-seeds-receipt"></div>
+            </div>
+
+            <canvas id="salesChart" width="400" height="200"></canvas>
+        </section>
+
+        <section id="training-section" style="display: none;">
+            <h2>Trainings</h2>
+            <button id="book-training">Book Training</button>
+            <div id="training-details" style="display: none;">
+                <h3>Select Training Type</h3>
+                <form id="training-form">
+                    <label for="training-type">Choose Training:</label>
+                    <select id="training-type" required>
+                        <option value="Land Preparation">Land Preparation</option>
+                        <option value="Seed Preparation">Seed Preparation</option>
+                        <option value="Fertilizer Application">Fertilizer Application</option>
+                        <option value="Harvesting Techniques">Harvesting Techniques</option>
+                    </select>
+                    <label for="training-time">Select Time:</label>
+                    <select id="training-time" required>
+                        <option value="12 PM - 1 PM">12 PM - 1 PM</option>
+                        <option value="1 PM - 2 PM">1 PM - 2 PM</option>
+                        <option value="2 PM - 3 PM">2 PM - 3 PM</option>
+                        <option value="3 PM - 4 PM">3 PM - 4 PM</option>
+                    </select>
+                    <button type="submit">Book Training</button>
+                </form>
+                <div id="training-confirmation"></div>
+            </div>
+        </section>
+
+        <section id="contact-form-section" style="display: none;">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <input type="text" id="contact-name" placeholder="Your Name" required>
+                <input type="email" id="contact-email" placeholder="Your Email" required>
+                <textarea id="contact-message" placeholder="Your Message" required></textarea>
+                <button id="send-message">Send</button>
+            </form>
+            <div id="contact-confirmation"></div>
+        </section>
+
+        <footer>
+            <p>&copy; <span id="current-year"></span> Katheri West Cooperative. Follow us on 
+                <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-twitter"></i>
+                </a> 
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-facebook-f"></i>
+                </a>.
+            </p>
+        </footer>
+    </main>
+
+    <script src="./js/home.js"></script>
+</body>
+</html>

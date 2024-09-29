@@ -1,0 +1,124 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden; 
+}
+
+.container {
+    display: flex;
+    height: 100vh; 
+    background-color: rgb(158, 219, 219);
+}
+
+.left-side {
+    flex: 1;
+    background: url('/images/landing.jpg') no-repeat center; 
+    min-height: 500px; 
+    width: 100%; 
+}
+
+.right-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+    padding: 20px; 
+}
+
+h1 {
+    text-align: center; 
+    margin-bottom: 20px; 
+}
+
+form {
+    width: 100%; 
+    min-width: 300px; 
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.9); 
+    border-radius: 10px; 
+    padding: 20px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+}
+
+input {
+    width: 100%; 
+    padding: 10px; 
+    margin: 10px 0; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; /
+}
+
+button {
+    width: 100%; 
+    margin-top: 10px; 
+    padding: 10px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+
+.signup-btn {
+    background-color: #28a745;
+    color: white; 
+}
+
+.login-btn {
+    background-color: #007bff; 
+    color: white; 
+}
+
+.reset-btn {
+    background-color: #ffc107; 
+    color: black; 
+}
+
+button:hover {
+    opacity: 0.9; 
+}
+
+/* Checkbox container styles */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input {
+    margin-right: 5px; 
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column; 
+        height: auto; 
+    }
+    .left-side {
+        background-size: cover; 
+        min-height: 50vh; 
+        width: 100%; 
+    }
+}
+
+/* Small screen adjustments */
+@media (max-width: 376px) {
+    .left-side {
+        background-size: 100% auto; 
+        min-height: 50vh; 
+    }
+    .right-side {
+        padding: 5px; 
+    }
+    h1 {
+        font-size: 18px; 
+    }
+    form {
+        padding: 15px; 
+        max-width: 90%; 
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Katheri West Cooperative</title>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side"></div>
+        <div class="right-side">
+            <h1>Welcome to Katheri Potato Cooperative</h1>
+
+            <!-- Signup Form -->
+            <div id="signup-form" style="display: none;">
+                <form>
+                    <input type="text" placeholder="Full Name" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required id="signup-password">
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="show-signup-password">
+                        <label for="show-signup-password">Show Password</label>
+                    </div>
+                    <button type="submit" class="btn signup-btn">Sign Up</button>
+                    <button type="button" id="login-button" class="btn">Login</button>
+                </form>
+            </div>
+
+            <!-- Login Form -->
+            <div id="login-form"> 
+                <form>
+                    <input type="email" placeholder="Email" required>
+                    <input type="password" placeholder="Password" required id="login-password">
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="show-login-password">
+                        <label for="show-login-password">Show Password</label>
+                    </div>
+                    <button type="submit" class="btn login-btn">Login</button>
+                    <button type="button" id="forgot-password-button" class="btn">Forgot Password?</button>
+                    <button type="button" id="back-to-signup" class="btn">Back to Sign Up</button>
+                </form>
+            </div>
+
+            <!-- Reset Password Form -->
+            <div id="reset-form" style="display: none;">
+                <form>
+                    <input type="email" placeholder="Email" required>
+                    <button type="submit" class="btn reset-btn">Reset Password</button>
+                    <button type="button" id="back-to-signup-from-reset" class="btn">Back to Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script> <!-- Ensure this is at the bottom -->
+</body>
+</html>
